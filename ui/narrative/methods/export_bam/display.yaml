@@ -1,0 +1,29 @@
+#
+# define display information
+#
+name: Export Alignment to BAM
+
+tooltip: |
+    Export an Alignment Object to the staging area
+
+screenshots: []
+
+icon: icon.png
+
+#
+# Configure the display and description of parameters
+#
+parameters :
+  alignment_object_ref :
+    ui-name : |
+        Reads Alignment or Reads AlignmentSet
+    short-hint : |
+        Select the RNASeqAlignment or AlignmentSet created by HISAT2, TopHat2 or Bowtie2.
+  destination_dir :
+    ui-name : |
+        Destination Directory
+    short-hint : |
+        Name for the output directory to place the BAM files in.
+
+description : |
+    <p>Export Alignment Objects to a staging area.

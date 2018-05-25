@@ -1,0 +1,66 @@
+{
+    "ver": "0.0.1",
+    "authors": [
+        "scanon,tgu2"
+    ],
+    "contact": "",
+    "categories": ["active"],
+    "widgets": {
+        "input": null,
+        "output": null
+    },
+    "parameters": [
+       {
+          "id" : "alignment_object_ref",
+          "optional" : false,
+          "advanced" : false,
+          "allow_multiple" : false,
+          "default_values" : [ "" ],
+          "field_type" : "text",
+          "text_options" : {
+            "valid_ws_types" : ["KBaseRNASeq.RNASeqAlignment"]
+          }
+        },
+        {
+          "id" : "destination_dir",
+          "optional" : false,
+          "advanced" : true,
+          "allow_multiple" : false,
+          "default_values" : [ "bam_export" ],
+          "field_type" : "text"
+        }
+        ],
+    "behavior": {
+        "service-mapping": {
+            "url": "",
+            "name": "kb_rnaseq_export",
+            "method": "export_rna_seq_alignment_as_bam_to_staging",
+            "input_mapping": [
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_argument_position": 0
+                },
+                {
+                    "input_parameter" : "alignment_object_ref",
+                    "target_type_transform": "resolved-ref",
+                    "target_property" : "input_ref"
+                },
+                {
+                    "input_parameter" : "destination_dir",
+                    "target_property" : "destination_dir"
+                }
+            ],
+            "output_mapping": [
+                {
+                    "service_method_output_path": [0],
+                    "target_property": "output"
+                },
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "workspaceName"
+                }
+            ]
+        }
+    },
+    "job_id_output_field": "docker"
+}
