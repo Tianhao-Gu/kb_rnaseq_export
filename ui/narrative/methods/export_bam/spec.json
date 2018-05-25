@@ -24,7 +24,7 @@
         {
           "id" : "destination_dir",
           "optional" : false,
-          "advanced" : true,
+          "advanced" : false,
           "allow_multiple" : false,
           "default_values" : [ "bam_export" ],
           "field_type" : "text"
@@ -36,10 +36,6 @@
             "name": "kb_rnaseq_export",
             "method": "export_rna_seq_alignment_as_bam_to_staging",
             "input_mapping": [
-                {
-                    "narrative_system_variable": "workspace",
-                    "target_argument_position": 0
-                },
                 {
                     "input_parameter" : "alignment_object_ref",
                     "target_type_transform": "resolved-ref",

@@ -18,7 +18,7 @@ parameters :
     ui-name : |
         Reads Alignment or Reads AlignmentSet
     short-hint : |
-        Select the RNASeqAlignment or AlignmentSet created by HISAT2, TopHat2 or Bowtie2.
+        Select the RNASeqAlignment Object.
   destination_dir :
     ui-name : |
         Destination Directory
