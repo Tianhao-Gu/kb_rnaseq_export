@@ -57,9 +57,10 @@ class kb_rnaseq_export:
         params['download_file_type'] = 'bam'
         if 'destination_dir' not in params:
             raise ValueError("Missing destination directory")
+        os.mkdir
         print json.dumps(params, indent=1)
 
-        rna_seq_downloader = RNASeqExportUtils(self.config)
+        rna_seq_downloader = RNASeqExportUtils(ctx, self.config)
         output = rna_seq_downloader.download_RNASeq_Alignment_BAM(params)
         #END export_rna_seq_alignment_as_bam_to_staging
 

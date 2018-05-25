@@ -3,7 +3,6 @@ import unittest
 import os  # noqa: F401
 import json  # noqa: F401
 import time
-import requests
 import mock
 
 from os import environ
@@ -19,16 +18,16 @@ from kb_rnaseq_export.kb_rnaseq_exportImpl import kb_rnaseq_export
 from kb_rnaseq_export.kb_rnaseq_exportServer import MethodContext
 from kb_rnaseq_export.authclient import KBaseAuth as _KBaseAuth
 
+
 class rau_mock(object):
     def __init__(self, callback, ver='dev', token=None):
-       pass
+        pass
 
     def download_alignment(self, params):
         ddir = '/kb/module/work/tmp'
         with open(ddir+'/accepted_hits.bam', 'w') as f:
             f.write("bogus")
         return {'destination_dir': ddir}
-
 
 
 class kb_rnaseq_exportTest(unittest.TestCase):
@@ -92,9 +91,12 @@ class kb_rnaseq_exportTest(unittest.TestCase):
         self.alignment_ref_1 = '1/2/3'
         params = {
             'input_ref': self.alignment_ref_1,
-            'destination_dir': '/staging'
+            'destination_dir': 'output'
         }
+        os.mkdir('/staging/'+self.ctx['user_id'])
         ret = self.getImpl().export_rna_seq_alignment_as_bam_to_staging(
               self.getContext(), params)
         self.assertTrue('path' in ret[0])
-        self.assertTrue(os.path.exists('/staging/accepted_hits.bam'))
+        fn = 'accepted_hits.bam'
+        out = os.path.join('/staging', self.ctx['user_id'], 'output', fn)
+        self.assertTrue(os.path.exists(out))
