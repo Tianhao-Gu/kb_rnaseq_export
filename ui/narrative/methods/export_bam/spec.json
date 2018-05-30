@@ -4,10 +4,10 @@
         "scanon,tgu2"
     ],
     "contact": "",
-    "categories": ["active"],
+    "categories": ["active","util","expression"],
     "widgets": {
         "input": null,
-        "output": null
+        "output": "no-display"
     },
     "parameters": [
        {
