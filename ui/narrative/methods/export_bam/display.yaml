@@ -1,14 +1,14 @@
 #
 # define display information
 #
-name: Export Alignment to BAM
+name: Export BAM alignment to Staging Area
 
 tooltip: |
-    Export an Alignment Object to the staging area
+    Export an Alignment Object to the staging area in BAM format
 
 screenshots: []
 
-icon: icon.png
+icon: data-yellow.png
 
 #
 # Configure the display and description of parameters
