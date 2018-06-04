@@ -46,7 +46,7 @@ class RNASeqExportUtils:
         returnVal = dict()
 
         tmp_dir = self.rau.download_alignment({'source_ref': input_ref,
-                                               'downloadBAI': True})['destination_dir']
+                                               'downloadBAI': False})['destination_dir']
         files = os.listdir(tmp_dir)
         destination_dir = os.path.join(self.staging_base, params['destination_dir'])
         if not os.path.exists(destination_dir):
